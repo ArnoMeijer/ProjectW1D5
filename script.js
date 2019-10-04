@@ -2,4 +2,11 @@ let woordString = "aan, aanbod, aanraken, aanval, aap, aardappel, aarde, aardig,
 
 let woordArray = woordString.split(", ");
 
-console.log(woordArray[5]); // aardappel
+const randomWord = function(numberOfLetters) {
+  let word = woordArray[Math.floor(Math.random() * (woordArray.length + 1))];
+  if (word.length === numberOfLetters) {
+    return word;
+  } else {
+    return randomWord(numberOfLetters);
+  }
+}
