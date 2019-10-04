@@ -7,21 +7,19 @@
 
 <body>
     <h1>Simple Hangman Game</h1>
-    
+
     <div>
         <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter">
-        <button class="Guesbutton">Guess</button>
+        <button class="Guessbutton" onclick="guess()">Guess</button>
         <button class="Restartbutton">Restart</button>
-     
+
     </div>
 
     <div>
         <h2>Current Word:</h2>
-    </div> 
-    
-    <div class="changingStrips">
-        //Streepjes voor het aantal letters van het woord
     </div>
+
+    <div id="changingStrips"></div>
 
     <div class="countDown">
         <h2>You have 5 lives remaining</h2>
@@ -31,7 +29,7 @@
     <div class="returnMessage">
         // bericht gefeliciteerd of game over
     </div>
-    <script></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
