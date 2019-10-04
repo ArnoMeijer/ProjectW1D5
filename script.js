@@ -11,7 +11,7 @@ const randomWord = function(numberOfLetters) {
   }
 }
 
-const getShowWord = function(wordArr) {
+const initialState = function(wordArr) {
   let result = "";
   for (elem of wordArr) {
     result = result + "_ ";
@@ -19,14 +19,30 @@ const getShowWord = function(wordArr) {
   return result;
 }
 
-let word = getShowWord(randomWord(6));
-let wordNode = document.getElementById("changingStrips");
+let showWord = function(wordArr) {
+  let result = "";
+  for (elem of wordArr) {
+    result = result + "_ ";
+  }
+  return result;
+}
 
-wordNode.innerHTML = word;
+let wordToGuess = randomWord(6);  // voor nu hardcoded voor 6 lettige woorden
+let wordNode = document.getElementById("changingStrips");
+wordNode.innerHTML = initialState(wordToGuess) + wordToGuess.toString();  
+// ik speel vals door het woord af te drukken, maar voor testen mag dit wel, toch?
 
 const guess = function() {
   let guessLetter = document.getElementById("letter").value;
-  wordNode.innerHTML = guessLetter;
+  let result = "";
+  for (elem of wordToGuess) {
+    if (elem === guessLetter) {
+      result = result + guessLetter + " ";
+    } else {
+      result = result + "_ ";
+    }
+  }
+  wordNode.innerHTML = result;
 
 
 }
