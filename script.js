@@ -2,16 +2,17 @@ let wordString = "aan, aanbod, aanraken, aanval, aap, aardappel, aarde, aardig, 
 
 let wordArray = wordString.split(", ");
 
-const randomWord = function(numberOfLetters) {
+const getWordToGuess = function (gameState) {
   let word = wordArray[Math.floor(Math.random() * (wordArray.length + 1))];
-  if (word.length === numberOfLetters) {
-    return word.split("");
+  if (word.length > 3) {
+    gameState.wordToGuess = word.split("");
+    return gameState;
   } else {
-    return randomWord(numberOfLetters);
+    return getWordToGuess(gameState);
   }
 }
 
-const initialState = function(wordArr) {
+const initialState = function (wordArr) {
   let result = "";
   for (elem of wordArr) {
     result = result + "_ ";
@@ -19,7 +20,7 @@ const initialState = function(wordArr) {
   return result;
 }
 
-let showWord = function(wordArr) {
+let showWord = function (wordArr) {
   let result = "";
   for (elem of wordArr) {
     result = result + "_ ";
@@ -28,11 +29,11 @@ let showWord = function(wordArr) {
 }
 
 let wordToGuess = randomWord(6);  // voor nu hardcoded voor 6 lettige woorden
-let wordNode = document.getElementById("changingStrips");
-wordNode.innerHTML = initialState(wordToGuess) + wordToGuess.toString();  
+let wordNode = document.getElementById("word");
+wordNode.innerHTML = initialState(wordToGuess) + wordToGuess.toString();
 // ik speel vals door het woord af te drukken, maar voor testen mag dit wel, toch?
 
-const guess = function() {
+const guess = function () {
   let guessLetter = document.getElementById("letter").value;
   let result = "";
   for (elem of wordToGuess) {
