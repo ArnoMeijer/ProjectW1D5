@@ -29,3 +29,7 @@ button {
     background-color: #FF9900;
     border: 1px solid #FF9900;
 }
+
+#waarschuwing {
+    color: orangered;
+}
