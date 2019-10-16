@@ -1,38 +1,35 @@
-* {
-    box-sizing: border-box;
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    
+    font-family: arial;
 }
-body {
-    font-family: sans-serif;
+
+input {
+    padding: 5px;
+    width: 120px;
 }
-/* Keep it simple - improvement would be to not display characters */
- .letter {
-    display: inline-block;
-    list-style: none;
-    width: 20px;
-    margin: 0 5px;
-    border-bottom: 1px solid black;
-    text-align: center;
-    color: white;
+
+button {
+    padding: 5px;
+    width: 60px;
+    color: #fff;
+    border: 1px solid #467AB2;
+    border-radius: 10%;
 }
-.current-word {
-    list-style: none;
+
+#guessBtn {
+    background-color: #467AB2;
+    border: 1px solid #467AB2;
 }
-.output {
-    opacity: 0;
-    transition: opacity 1s ease;
+
+#restartBtn {
+    background-color: #FF9900;
+    border: 1px solid #FF9900;
 }
-.correct {
-    background-color: green;
-    transition: all 1s ease;
+
+#waarschuwing {
+    color: orangered;
 }
-.error {
-    color: red;
-    opacity: 1;
-}
-.warning {
-    color: orange;
-    opacity: 1;
-}
-.win {
-    color: green;
-    opacity: 1;

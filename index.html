@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link href="stylesheet.css" type="text/css" rel="stylesheet">
-    <title>"Galgje Sander en Arno"</title>
+    <title>"W1D5-Galgje Sander en Arno"</title>
 </head>
 
 <body>
-    <h1>Simple Hangman Game</h1>
+    <main>
+        <h1>Simpel Galgje Spel</h1>
 
-    <div>
-        <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter">
-        <button class="Guessbutton" onclick="guess()">Guess</button>
-        <button class="Restartbutton">Restart</button>
+        <div id="guessBox">
+            <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Kies een letter">
+            <button id="guessBtn" onclick="guess()">Kies</button>
+            <button id="restartBtn" onclick="restart()">Herstart</button>
+        </div>
 
-    </div>
+        <h2 id="waarschuwing"></h2>
 
-    <div>
-        <h2>Current Word:</h2>
+        <h2>Huidig Woord:</h2>
 
-    </div>
+        <h2 id="word"></h2>
 
-    <div id="changingStrips"></div>
-
-    <div class="countDown">
-        <h2>You have 5 lives remaining</h2>
-        // moet aftellen
-    </div>
-
-    <div class="returnMessage">
-        // bericht gefeliciteerd of game over
-    </div>
-
+        <h2 id="lives"></h2>
+    </main>
     <script type="text/javascript" src="script.js"></script>
 </body>
 
