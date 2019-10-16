@@ -9,10 +9,19 @@ let letterNode;
 let wordNode;
 let livesNode;
 let guessBtnNode;
+let waarschuwingNode;
 
 const guess = function () {
-  letter = letterNode.value;
-  lettersGuessed.push(letter)
+  letter = letterNode.value.toLowerCase();
+  if (lettersGuessed.includes(letter)) {
+    waarschuwingNode.innerHTML = `deze letter heeft u al eens gekozen`;
+    if (!wordToGuess.includes(letter)) {
+      lives = lives + 1;
+    }
+  } else {
+    waarschuwingNode.innerHTML = ` `;
+    lettersGuessed.push(letter)
+  }
   if (!wordToGuess.includes(letter)) {
     lives = lives - 1
   }
@@ -29,7 +38,7 @@ const guess = function () {
     livesNode.innerHTML = `U hebt geen levens meer! U hebt verloren`;
     guessBtnNode.disabled = true;
   } else {
-    livesNode.innerHTML = `U heeft nog ${lives} levens over<br>
+    livesNode.innerHTML = `U hebt nog ${lives} levens over<br>
     gebruikte letters: ${lettersGuessed.toString()}`;
   }
   letterNode.value = '';
@@ -44,6 +53,7 @@ const restart = function () {
   lives = 5;
   wordNode.innerHTML = wordToDisplay.join('');
   livesNode.innerHTML = `U heeft nog ${lives} levens over`;
+  waarschuwingNode.innerHTML = ` `
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,5 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
   wordNode = document.getElementById('word');
   livesNode = document.getElementById('lives');
   guessBtnNode = document.getElementById('guessBtn');
+  waarschuwingNode = document.getElementById('waarschuwing');
   restart();
 })
